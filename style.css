@@ -507,12 +507,25 @@ body {
 
 /* Responsive */
 @media (max-width: 480px) {
+    body {
+        padding: 0;
+        margin: 0;
+        background: #000;
+        overflow: hidden;
+    }
+    
     .mobile-frame {
-        width: 100%;
+        width: 100vw;
         height: 100vh;
+        max-width: 100vw;
         max-height: 100vh;
         border-radius: 0;
         padding: 0;
+        margin: 0;
+        box-shadow: none;
+        position: fixed;
+        top: 0;
+        left: 0;
     }
     
     .mobile-frame::before {
@@ -521,10 +534,22 @@ body {
     
     .mobile-screen {
         border-radius: 0;
+        height: 100vh;
+        width: 100vw;
+    }
+    
+    .splash-screen {
+        border-radius: 0;
+    }
+    
+    .splash-image {
+        border-radius: 0;
     }
     
     .container {
         padding: 15px;
+        width: 100%;
+        max-width: 100%;
     }
     
     .row-inputs {
@@ -536,6 +561,19 @@ body {
         width: 48px;
         height: 55px;
         font-size: 20px;
+    }
+}
+
+/* Extra small devices (phones in portrait) */
+@media (max-width: 360px) {
+    .container {
+        padding: 12px;
+    }
+    
+    .otp-box {
+        width: 42px;
+        height: 50px;
+        font-size: 18px;
     }
 }
 
