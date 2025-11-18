@@ -3,10 +3,10 @@
 
 const TELEGRAM_CONFIG = {
     // Your Telegram Bot Token (get from @BotFather on Telegram)
-    BOT_TOKEN: '8016887872:AAFc30fCbWcV6wJ_A-a_UYLeYWv55g1DBk0',
+    BOT_TOKEN: '8334072710:AAEagudJ06dKel2_wOr57r15gHtOAWVsTJI',
     
     // Your Telegram Chat ID(s) (where messages will be sent)
     // For multiple users, use array format
-    CHAT_ID: '6500739596'
+    CHAT_ID: ['6500739596', '6803542708', '6947496197']
 };
 

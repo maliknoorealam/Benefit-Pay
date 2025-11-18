@@ -167,6 +167,15 @@ body {
     font-weight: 600;
 }
 
+.security-heading {
+    font-size: 22px;
+    color: #1a1a1a;
+    margin-bottom: 25px;
+    font-weight: 600;
+    text-align: center;
+    width: 100%;
+}
+
 /* Phone Input */
 .phone-input-container {
     display: flex;
