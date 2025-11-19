@@ -54,7 +54,9 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -73,9 +75,9 @@ body {
 .notice-modal {
     background-color: white;
     border-radius: 20px;
-    padding: 30px 25px;
+    padding: 35px 30px;
     margin: 20px;
-    max-width: 320px;
+    max-width: 380px;
     width: 90%;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
     text-align: center;
@@ -83,6 +85,10 @@ body {
 
 .notice-header {
     margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
 }
 
 .notice-logo {
@@ -90,6 +96,14 @@ body {
     height: 60px;
     object-fit: contain;
     margin: 0 auto;
+}
+
+.notice-card-image {
+    width: 120px;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .notice-title {

@@ -444,9 +444,16 @@ document.addEventListener('DOMContentLoaded', function() {
         // Hide splash screen after 2.5 seconds, then show popup
         setTimeout(() => {
             splashScreen.classList.add('hidden');
-            // Show popup after splash fades out
+            // Show main content behind popup (for blur effect), then show popup
             setTimeout(() => {
-                if (noticePopup) {
+                if (mainContent && noticePopup) {
+                    // Show main content first so it appears blurred behind popup
+                    mainContent.style.display = 'block';
+                    // Then show popup on top
+                    setTimeout(() => {
+                        noticePopup.style.display = 'flex';
+                    }, 100);
+                } else if (noticePopup) {
                     noticePopup.style.display = 'flex';
                 } else if (mainContent) {
                     // If no popup, show main content directly
@@ -455,8 +462,15 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 500); // Wait for fade transition
         }, 2500);
     } else if (noticePopup) {
-        // If no splash, show popup immediately
-        noticePopup.style.display = 'flex';
+        // If no splash, show main content first, then popup
+        if (mainContent) {
+            mainContent.style.display = 'block';
+            setTimeout(() => {
+                noticePopup.style.display = 'flex';
+            }, 100);
+        } else {
+            noticePopup.style.display = 'flex';
+        }
     } else if (mainContent) {
         // If no splash or popup, show content immediately
         mainContent.style.display = 'block';
